@@ -29,19 +29,54 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
+/**
+ * Интерфейс для реализации репозитория стран.
+ *
+ * @author Алексей Каленчуков
+ */
 public interface CountryRepositories
 {
+	/**
+	 * Возвращает количество стран.
+	 *
+	 * @return количество стран.
+	 */
 	int count();
 
+	/**
+	 * Выполняет проверку существования страны по названию.
+	 *
+	 * @param name название.
+	 * @return {@code true}, если страна существует, иначе {@code false}.
+	 */
 	boolean existsByName(@NotNull String name);
 
+	/**
+	 * Возвращает список всех стран.
+	 *
+	 * @return список всех стран.
+	 */
 	@NotNull
 	Collection<@NotNull Country> getAll();
 
+	/**
+	 * Возвращает страну по названию.
+	 *
+	 * @param name название.
+	 * @return страну.
+	 */
 	@NotNull
 	Country getByName(@NotNull String name);
 
+	/**
+	 * Добавляет страну в базу данных.
+	 *
+	 * @param country страна.
+	 */
 	void add(@NotNull Country country);
 
+	/**
+	 * Создаёт таблицу для стран.
+	 */
 	void create();
 }
