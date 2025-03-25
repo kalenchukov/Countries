@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * Класс страны.
  */
-public class Country
+public final class Country
 {
 	/**
 	 * Буквенный код по стандарту ISO 3166 alpha 2.
