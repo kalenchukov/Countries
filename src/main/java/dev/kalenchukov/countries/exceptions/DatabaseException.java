@@ -1,5 +1,5 @@
 /*
- * Copyright © 2024 Алексей Каленчуков
+ * Copyright © 2024-2025 Алексей Каленчуков
  * GitHub: https://github.com/kalenchukov
  * E-mail: mailto:aleksey.kalenchukov@yandex.ru
  *
