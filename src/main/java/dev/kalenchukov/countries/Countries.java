@@ -45,6 +45,11 @@ public final class Countries
 	private static final CountryRepositories repository = new CountryRepository();
 
 	/**
+	 * Конструктор для {@code Countries}.
+	 */
+	private Countries() {}
+
+	/**
 	 * Возвращает количество стран.
 	 *
 	 * @return количество стран.
