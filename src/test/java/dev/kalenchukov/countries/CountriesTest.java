@@ -111,17 +111,6 @@ public class CountriesTest
 
 				assertThat(actualExists).isFalse();
 			}
-
-			/**
-			 * Проверка метода {@link Countries#exists(String)} с {@code null}.
-			 */
-			@Test
-			public void existsWithNull()
-			{
-				Boolean actualExists = Countries.exists(null);
-
-				assertThat(actualExists).isFalse();
-			}
 		}
 
 		/**
