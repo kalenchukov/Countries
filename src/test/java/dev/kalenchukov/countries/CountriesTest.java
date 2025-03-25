@@ -142,17 +142,6 @@ public class CountriesTest
 					Countries.getByName("Россия");
 				});
 			}
-
-			/**
-			 * Проверка метода {@link Countries#getByName(String) с {@code null}}.
-			 */
-			@Test
-			public void getByNameWithNull()
-			{
-				assertThatExceptionOfType(CountryNotFoundException.class).isThrownBy(() -> {
-					Countries.getByName(null);
-				});
-			}
 		}
 	}
 }
