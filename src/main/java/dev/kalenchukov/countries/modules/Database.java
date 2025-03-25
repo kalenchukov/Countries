@@ -33,14 +33,28 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Класс базы данных.
+ */
 public class Database
 {
+	/**
+	 * Название файла.
+	 */
 	@NotNull
 	private static final String FILE = "countries.db";
 
+	/**
+	 * Соединение.
+	 */
 	@Nullable
 	private static Connection connection;
 
+	/**
+	 * Возвращает соединение.
+	 *
+	 * @return соединение.
+	 */
 	@NotNull
 	public static Connection getConnection()
 	{
