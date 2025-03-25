@@ -26,8 +26,18 @@ package dev.kalenchukov.countries.exceptions;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Исключение для отсутствия страны.
+ *
+ * @author Алексей Каленчуков
+ */
 public class CountryNotFoundException extends RuntimeException
 {
+	/**
+	 * Конструктор для {@code CountryNotFoundException}.
+	 *
+	 * @param message сообщение.
+	 */
 	public CountryNotFoundException(@NotNull final String message)
 	{
 		super(message);
