@@ -36,7 +36,7 @@ import java.util.Collection;
  *
  * @author Алексей Каленчуков.
  */
-public class Countries
+public final class Countries
 {
 	/**
 	 * Репозиторий стран.
