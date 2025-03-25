@@ -26,8 +26,19 @@ package dev.kalenchukov.countries.exceptions;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Исключение для проблемы с базой данных.
+ *
+ * @author Алексей Каленчуков
+ */
 public class DatabaseException extends RuntimeException
 {
+	/**
+	 * Конструктор для {@code DatabaseException}.
+	 *
+	 * @param message сообщение.
+	 * @param cause причина.
+	 */
 	public DatabaseException(@NotNull final String message, @NotNull final Throwable cause)
 	{
 		super(message, cause);
