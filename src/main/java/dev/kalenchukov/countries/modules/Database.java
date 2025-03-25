@@ -1,5 +1,5 @@
 /*
- * Copyright © 2022-2024 Алексей Каленчуков
+ * Copyright © 2025 Алексей Каленчуков
  * GitHub: https://github.com/kalenchukov
  * E-mail: mailto:aleksey.kalenchukov@yandex.ru
  *
@@ -38,10 +38,6 @@ public class Database
 	@NotNull
 	private static final String FILE = "countries.db";
 
-	@NotNull
-	private static final String PATH = System.getProperty("user.dir") +
-		"/src/main/resources/";
-
 	@Nullable
 	private static Connection connection;
 
@@ -51,7 +47,7 @@ public class Database
 		if (Database.connection == null) {
 			try {
 				DriverManager.registerDriver(new JDBC());
-				Database.connection = DriverManager.getConnection("jdbc:sqlite:" + PATH + FILE);
+				Database.connection = DriverManager.getConnection("jdbc:sqlite::resource:" + FILE);
 			} catch (SQLException exception) {
 				throw new DatabaseException("Не удалось подключиться к базе данных.", exception);
 			}
