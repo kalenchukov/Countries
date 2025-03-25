@@ -34,17 +34,34 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Класс репозитория стран.
+ *
+ * @author Алексей Каленчуков
+ */
 public class CountryRepository implements CountryRepositories
 {
+	/**
+	 * Соединение с базой данных.
+	 */
 	@NotNull
 	private final Connection connection;
 
+	/**
+	 * Конструктор для {@code CountryRepository}.
+	 */
 	public CountryRepository()
 	{
 		this.connection = Database.getConnection();
 		this.create();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param name {@inheritDoc}
+	 * @return {@inheritDoc}
+	 */
 	@NotNull
 	@Override
 	public Country getByName(@NotNull final String name)
@@ -82,6 +99,11 @@ public class CountryRepository implements CountryRepositories
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @return {@inheritDoc}
+	 */
 	@NotNull
 	@Override
 	public Collection<@NotNull Country> getAll()
@@ -120,6 +142,11 @@ public class CountryRepository implements CountryRepositories
 		return names;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @return {@inheritDoc}
+	 */
 	@Override
 	public int count()
 	{
@@ -141,6 +168,12 @@ public class CountryRepository implements CountryRepositories
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param name {@inheritDoc}
+	 * @return {@inheritDoc}
+	 */
 	@Override
 	public boolean existsByName(@NotNull final String name)
 	{
@@ -166,6 +199,11 @@ public class CountryRepository implements CountryRepositories
 		return (count != 0);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param country {@inheritDoc}
+	 */
 	@Override
 	public void add(@NotNull final Country country)
 	{
@@ -193,6 +231,9 @@ public class CountryRepository implements CountryRepositories
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void create()
 	{
