@@ -31,27 +31,57 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
+/**
+ * Класс стран.
+ *
+ * @author Алексей Каленчуков.
+ */
 public class Countries
 {
+	/**
+	 * Репозиторий стран.
+	 */
 	@NotNull
 	private static final CountryRepositories repository = new CountryRepository();
 
+	/**
+	 * Возвращает количество стран.
+	 *
+	 * @return количество стран.
+	 */
 	public static int count()
 	{
 		return repository.count();
 	}
 
+	/**
+	 * Выполняет проверку существования страны по названию.
+	 *
+	 * @param name название.
+	 * @return {@code true}, если страна существует, иначе {@code false}.
+	 */
 	public static boolean exists(@NotNull final String name)
 	{
 		return repository.existsByName(name);
 	}
 
+	/**
+	 * Возвращает страну по названию.
+	 *
+	 * @param name название.
+	 * @return страну.
+	 */
 	@NotNull
 	public static Country getByName(@NotNull final String name)
 	{
 		return repository.getByName(name);
 	}
 
+	/**
+	 * Возвращает список всех стран.
+	 *
+	 * @return список всех стран.
+	 */
 	@NotNull
 	public static Collection<@NotNull Country> getAll()
 	{
