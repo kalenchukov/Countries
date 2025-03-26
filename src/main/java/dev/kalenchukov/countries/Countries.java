@@ -45,6 +45,12 @@ public final class Countries
 	private static final CountryServices countryService = new CountryService();
 
 	/**
+	 * Конструктор для {@code Countries}.
+	 */
+	private Countries()
+	{}
+
+	/**
 	 * Возвращает количество стран.
 	 *
 	 * @return количество стран.
