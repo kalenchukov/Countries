@@ -1,5 +1,5 @@
 /*
- * Copyright © 2024-2025 Алексей Каленчуков
+ * Copyright © 2025 Алексей Каленчуков
  * GitHub: https://github.com/kalenchukov
  * E-mail: mailto:aleksey.kalenchukov@yandex.ru
  *
@@ -22,69 +22,93 @@
  * SOFTWARE.
  */
 
-package dev.kalenchukov.countries;
+package dev.kalenchukov.countries.services;
 
 import dev.kalenchukov.countries.entities.Country;
-import dev.kalenchukov.countries.services.CountryService;
-import dev.kalenchukov.countries.services.CountryServices;
+import dev.kalenchukov.countries.repositories.CountryRepositories;
+import dev.kalenchukov.countries.repositories.CountryRepository;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
 /**
- * Класс стран.
+ * Класс сервиса стран.
  *
- * @author Алексей Каленчуков.
+ * @author Алексей Каленчуков
  */
-public class Countries
+public class CountryService implements CountryServices
 {
 	/**
-	 * Сервис стран.
+	 * Репозиторий стран.
 	 */
 	@NotNull
-	private static final CountryServices countryService = new CountryService();
+	private static final CountryRepositories repository = new CountryRepository();
 
 	/**
-	 * Возвращает количество стран.
+	 * {@inheritDoc}
 	 *
-	 * @return количество стран.
+	 * @return {@inheritDoc}
 	 */
-	public static int count()
+	@Override
+	public int count()
 	{
-		return countryService.count();
+		return repository.count();
 	}
 
 	/**
-	 * Выполняет проверку существования страны по названию.
+	 * {@inheritDoc}
 	 *
-	 * @param name название.
-	 * @return {@code true}, если страна существует, иначе {@code false}.
+	 * @param name {@inheritDoc}
+	 * @return {@inheritDoc}
 	 */
-	public static boolean exists(@NotNull final String name)
+	@Override
+	public boolean existsByName(@NotNull final String name)
 	{
-		return countryService.existsByName(name);
+		return repository.existsByName(name);
 	}
 
 	/**
-	 * Возвращает страну по названию.
+	 * {@inheritDoc}
 	 *
-	 * @param name название.
-	 * @return страну.
+	 * @return {@inheritDoc}
 	 */
 	@NotNull
-	public static Country getByName(@NotNull final String name)
+	@Override
+	public Collection<@NotNull Country> getAll()
 	{
-		return countryService.getByName(name);
+		return repository.getAll();
 	}
 
 	/**
-	 * Возвращает список всех стран.
+	 * {@inheritDoc}
 	 *
-	 * @return список всех стран.
+	 * @param name {@inheritDoc}
+	 * @return {@inheritDoc}
 	 */
 	@NotNull
-	public static Collection<@NotNull Country> getAll()
+	@Override
+	public Country getByName(@NotNull final String name)
 	{
-		return countryService.getAll();
+		return repository.getByName(name);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param country {@inheritDoc}
+	 */
+	@Override
+	public void add(@NotNull final Country country)
+	{
+		repository.add(country);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void create()
+	{
+		repository.create();
 	}
 }

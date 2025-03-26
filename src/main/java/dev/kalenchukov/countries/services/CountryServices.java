@@ -1,5 +1,5 @@
 /*
- * Copyright © 2024-2025 Алексей Каленчуков
+ * Copyright © 2025 Алексей Каленчуков
  * GitHub: https://github.com/kalenchukov
  * E-mail: mailto:aleksey.kalenchukov@yandex.ru
  *
@@ -22,37 +22,26 @@
  * SOFTWARE.
  */
 
-package dev.kalenchukov.countries;
+package dev.kalenchukov.countries.services;
 
 import dev.kalenchukov.countries.entities.Country;
-import dev.kalenchukov.countries.services.CountryService;
-import dev.kalenchukov.countries.services.CountryServices;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
 /**
- * Класс стран.
+ * Интерфейс для реализации сервиса стран.
  *
- * @author Алексей Каленчуков.
+ * @author Алексей Каленчуков
  */
-public class Countries
+public interface CountryServices
 {
-	/**
-	 * Сервис стран.
-	 */
-	@NotNull
-	private static final CountryServices countryService = new CountryService();
-
 	/**
 	 * Возвращает количество стран.
 	 *
 	 * @return количество стран.
 	 */
-	public static int count()
-	{
-		return countryService.count();
-	}
+	int count();
 
 	/**
 	 * Выполняет проверку существования страны по названию.
@@ -60,10 +49,15 @@ public class Countries
 	 * @param name название.
 	 * @return {@code true}, если страна существует, иначе {@code false}.
 	 */
-	public static boolean exists(@NotNull final String name)
-	{
-		return countryService.existsByName(name);
-	}
+	boolean existsByName(@NotNull String name);
+
+	/**
+	 * Возвращает список всех стран.
+	 *
+	 * @return список всех стран.
+	 */
+	@NotNull
+	Collection<@NotNull Country> getAll();
 
 	/**
 	 * Возвращает страну по названию.
@@ -72,19 +66,17 @@ public class Countries
 	 * @return страну.
 	 */
 	@NotNull
-	public static Country getByName(@NotNull final String name)
-	{
-		return countryService.getByName(name);
-	}
+	Country getByName(@NotNull String name);
 
 	/**
-	 * Возвращает список всех стран.
+	 * Добавляет страну в базу данных.
 	 *
-	 * @return список всех стран.
+	 * @param country страна.
 	 */
-	@NotNull
-	public static Collection<@NotNull Country> getAll()
-	{
-		return countryService.getAll();
-	}
+	void add(@NotNull Country country);
+
+	/**
+	 * Создаёт таблицу для стран.
+	 */
+	void create();
 }
